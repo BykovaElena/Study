@@ -1,0 +1,12 @@
+.card{
+display: grid;
+box-sizing: border-box;
+list-style-type: none;
+padding: 0;
+margin: 0;
+grid-gap: 50px;
+grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+border-color: black;
+
+}
