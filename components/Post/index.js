@@ -9,9 +9,14 @@ import { ConsoleSqlOutlined, HeartTwoTone } from "@ant-design/icons";
 
 
 
-export const Post = ({ onPostLike, _id, title, likes, image, text, author: {name, email}, created_at, updated_at}) => {
+export const Post = ({ userDelete, onPostLike, _id, title, likes, image, text, author: {name, email}, created_at, updated_at}) => {
    // const isLiked = likes.some(id => id === currentUser._id);
     const [count, setCount] = useState(0);
+
+    function handleDeleteClick(){
+        userDelete({_id})
+    }
+
 
     function handleLikeClick (){
         setCount(prevState => prevState+1);
@@ -40,7 +45,7 @@ export const Post = ({ onPostLike, _id, title, likes, image, text, author: {name
                 <button onClick={handleLikeClick}>{ count}
                     <HeartTwoTone twoToneColor="#eb2f96"  />
                 </button>
-                
+                <button className="btn_delete" onClick = {handleDeleteClick}> Удалить </button>
             </Card>
         </div>
         
