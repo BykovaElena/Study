@@ -32,6 +32,19 @@ useEffect (() => {
     } )
 },[])
 
+function handleDeleteUsere ({_id}) {
+    
+
+    api.deleteUser(_id)
+    .then((newPost) => {
+        const newPostsState = posts.map(c => {
+
+           return   newPost 
+        })
+        setPosts(newPostsState) 
+    })
+}
+
 function handlePostLike ({_id, likes}) {
     const isLiked = likes.some(id => id === currentUser._id);
 
@@ -50,7 +63,7 @@ function handlePostLike ({_id, likes}) {
             <Layout>
                 <Header >Header</Header>
                 <Content>
-                    <PostList  postData={posts} currentUser={currentUser} onPostLike={handlePostLike}/>
+                    <PostList userDelete = {handleDeleteUsere} postData={posts} currentUser={currentUser} onPostLike={handlePostLike}/>
                     
                     <Info/>
                 </Content>
